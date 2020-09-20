@@ -1,7 +1,8 @@
 import React from "react";
 import ProjectList from "./ProjectsList";
 import PropTypes from "prop-types";
-import { getProjectList } from "./testData";
+import { getProjectList, getSkillsList } from "./testData";
+import SkillsList from "./SkillsList";
 
 class PortfolioControl extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class PortfolioControl extends React.Component {
       formVisibleOnPage: false,
       editing: false,
       projectList: getProjectList(),
+      skillsList: getSkillsList(),
     };
   }
 
@@ -18,15 +20,19 @@ class PortfolioControl extends React.Component {
     if (this.state.editing) {
     } else {
       currentlyVisibleState = (
-        <ProjectList projectList={this.state.projectList} />
+        <React.Fragment>
+          <ProjectList projectList={this.state.projectList} />
+          <SkillsList skillsList={this.state.skillsList} />
+        </React.Fragment>
       );
-    }
-    return <React.Fragment>{currentlyVisibleState}</React.Fragment>;
+    };
+    return <React.Fragment>{currentlyVisibleState}</React.Fragment>
   }
 }
 
 PortfolioControl.propTypes = {
   projectList: PropTypes.array,
+  skillsList: PropTypes.array,
 };
 
 export default PortfolioControl;
