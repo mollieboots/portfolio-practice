@@ -3,6 +3,7 @@ const projectList = [{name: "Burt", timeWorked: "2 minutes", description: "My pr
 
 const skillsList = [{name: "Coding", experience: "3000 years", description: "I am weasel, I r baboon"}]
 
+export const bioTest = "My name is Weasel. I make code";
 
 export function getProjectList() {
   return projectList;
